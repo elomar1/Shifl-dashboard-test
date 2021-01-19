@@ -1,0 +1,17 @@
+body,.v-application {
+    font-family: 'Montserrat-Regular'; 
+}
+.containerMain {
+    height: 100%;
+    padding: 40px 40px 40px 40px;
+    background: #F1F6FA;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url("../fonts/Montserrat-Regular.otf");
+  }

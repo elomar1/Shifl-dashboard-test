@@ -1,32 +1,56 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+    <DrawerMenu />
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title> 
+        <div class="forFelx">
+          <SearchGetHelp /> <Notification /> 
+        </div>
+      </v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <!--  -->
+       <router-view></router-view>
+
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import DrawerMenu from "./components/DrawerMenu.vue";
+  import SearchGetHelp from "./components/SearchGetHelp.vue";
+  import Notification from "./components/Notification.vue";
+  export default {
+  components: {
+    DrawerMenu,SearchGetHelp,Notification
+  },
+    data: () => ({ drawer: null }),
+    
+  }
+</script>
 
-#nav {
-  padding: 30px;
+<style scoped>
+.v-toolbar__title {
+      width: 100%;
+    padding-left: 0px !important;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.theme--light.v-app-bar.v-toolbar.v-sheet{
+    background: #fff
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.forFelx{
+      display: flex;
+    align-items: center;
+}
+.v-toolbar {
+    box-shadow: unset !important;
 }
 </style>
